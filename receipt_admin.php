@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <!--
     
-TemplateMo 559 Zay Shop
+TemplateMo 559 Hustle
 
 https://templatemo.com/tm-559-zay-shop
 
@@ -60,7 +60,7 @@ https://templatemo.com/tm-559-zay-shop
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th>No. Receipt</th>
                                     <th>Customer Name</th>
                                     <th>Customer Phone</th>
                                     <th>Customer Email</th>
@@ -76,10 +76,9 @@ https://templatemo.com/tm-559-zay-shop
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1; ?>
                                 <?php foreach ($receipt as $receipt): ?>
                                     <tr>
-                                        <td><?= $i++; ?></td>
+                                        <td><?= $receipt['no_receipt']; ?></td>
                                         <td><?= $receipt['customer_name']; ?></td>
                                         <td><?= $receipt['customer_phone']; ?></td>
                                         <td><?= $receipt['customer_email']; ?></td>

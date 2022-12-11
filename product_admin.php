@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <!--
     
-TemplateMo 559 Zay Shop
+TemplateMo 559 Hustle
 
 https://templatemo.com/tm-559-zay-shop
 
