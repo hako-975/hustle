@@ -4,6 +4,10 @@
     if (isset($_GET['no_receipt'])) {
         $no_receipt = $_GET['no_receipt'];
         $receipt = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM receipt INNER JOIN product ON receipt.product_id = receipt.product_id WHERE no_receipt = '$no_receipt'"));
+        if ($receipt == null) {
+            header('Location: shop.php');
+            exit;
+        }
     } else {
         header('Location: shop.php');
         exit;

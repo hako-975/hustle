@@ -54,7 +54,6 @@ https://templatemo.com/tm-559-zay-shop
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.php">
                 Hustle
-            
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,6 +74,9 @@ https://templatemo.com/tm-559-zay-shop
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="check_receipt.php">Check Receipt</a>
                         </li>
                     </ul>
                 </div>

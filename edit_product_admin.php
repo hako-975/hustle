@@ -46,7 +46,7 @@
         if($sql) {
             echo "<script>
             alert('Edit Product Admin Success!');
-            document.location.href='edit_product_admin.php?product_id=".$product_id."'
+            document.location.href='product_admin.php?product_id=".$product_id."'
             </script>";
         } else {
             echo "<script>
@@ -103,19 +103,19 @@ https://templatemo.com/tm-559-zay-shop
             		<form method="post" enctype="multipart/form-data">
             			<div class="mb-3">
 						  <label for="product_name" class="form-label">Product Name</label>
-						  <input type="text" class="form-control" id="product_name" name="product_name" value="<?= $data_product['product_name']; ?>">
+						  <input type="text" class="form-control" id="product_name" name="product_name" required value="<?= $data_product['product_name']; ?>">
 						</div>
 						<div class="mb-3">
 						  <label for="product_stock" class="form-label">Product Stock</label>
-						  <input type="number" min="1" step="1" class="form-control" id="product_stock" name="product_stock" value="<?= $data_product['product_stock']; ?>">
+						  <input type="number" min="1" step="1" class="form-control" id="product_stock" name="product_stock" required value="<?= $data_product['product_stock']; ?>">
 						</div>
 						<div class="mb-3">
 						  <label for="product_price" class="form-label">Product Price</label>
-						  <input type="number" min="1" step="1" class="form-control" id="product_price" name="product_price" value="<?= $data_product['product_price']; ?>">
+						  <input type="number" min="1" step="1" class="form-control" id="product_price" name="product_price" required value="<?= $data_product['product_price']; ?>">
 						</div>
                         <div class="mb-3">
                           <label for="product_description" class="form-label">Product Description</label>
-                          <textarea class="form-control" id="product_description" name="product_description"><?= $data_product['product_description']; ?></textarea>
+                          <textarea class="form-control" id="product_description" name="product_description" required><?= $data_product['product_description']; ?></textarea>
                         </div>
 						<div class="mb-3">
 						  <label for="product_img" class="form-label">Product Image</label>

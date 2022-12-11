@@ -93,9 +93,9 @@ https://templatemo.com/tm-559-zay-shop
                                         <td><?= $receipt['date_checkout']; ?></td>
                                         <td class="align-middle">
                                             <?php if ($receipt['status'] == 'process'): ?>
-                                                <a href="change_status.php?no_receipt=<?= $receipt['no_receipt']; ?>" class="text-white badge bg-danger" onclick="return confirm('Are you sure want to change status to completed?')">Process</a>
+                                                <a href="change_status.php?no_receipt=<?= $receipt['no_receipt']; ?>" class="text-white btn btn-sm btn-danger" onclick="return confirm('Are you sure want to change status to completed?')">Process</a>
                                             <?php else: ?>
-                                                <span class="badge bg-success">Completed</span>
+                                                <span class="btn btn-sm btn-success">Completed</span>
                                             <?php endif ?>
                                         </td>
                                     </tr>

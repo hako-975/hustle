@@ -81,6 +81,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="check_receipt.php">Check Receipt</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -207,7 +210,7 @@ https://templatemo.com/tm-559-zay-shop
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <a href="shop-single.php" class="h3 text-decoration-none"><?= $product['product_name']; ?></a>
+                                    <a href="shop-single.php?product_id=<?= $product['product_id']; ?>" class="h3 text-decoration-none"><?= $product['product_name']; ?></a>
                                     <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                         <li>M/L/XL</li>
                                         <li class="pt-2">
