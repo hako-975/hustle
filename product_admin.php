@@ -8,6 +8,8 @@
     }
 
     $product_admin = mysqli_query($conn, "SELECT * FROM product");
+    $totalProduct = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM product"));
+
  ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +44,16 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Start Brands -->
     <section>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row my-4">
+                <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Product</h5>
+                        <p class="card-text"><?= $totalProduct; ?></p>
+                      </div>
+                    </div>
+                </div>
                 <div class="col text-end">
                     <a href="add_product_admin.php" class="btn btn-success">Add Product</a>
                 </div>

@@ -75,6 +75,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="check_receipt.php">Check Receipt</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">

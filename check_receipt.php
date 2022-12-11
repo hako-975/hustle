@@ -1,40 +1,8 @@
-<?php 
-    require_once 'connection.php';
-
-    // check login
-    if (isset($_SESSION['status'])) {
-        if ($_SESSION['status'] == 'login') {
-            header('Location: admin.php');
-            exit;
-        }
-    }
-
-    // btn Login
-    if (isset($_POST['btnLogin'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $check = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'"));
-        if ($check) {
-            if (password_verify($password, $check['password'])) {
-                $_SESSION['username'] = $username;
-                $_SESSION['status'] = 'login';
-                header('Location: admin.php');
-                exit;
-            } else {
-                echo "password salah";
-            }
-        } else {
-            echo 'username tidak ditemukan!';
-        }
-    }
-
- ?> 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Hustle - About Page</title>
+    <title>Hustle</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -107,6 +75,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="check_receipt.php">Check Receipt</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -136,30 +107,42 @@ https://templatemo.com/tm-559-zay-shop
     </nav>
     <!-- Close Header -->
 
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    <!-- Start Brands -->
+<!-- Start Brands -->
     <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                <div class="col-lg-4 m-auto border bg-success rounded p-4">
-                    <h1 class="text-white">Login</h1>
-                     <form class="form-signin w-100 m-auto" method="post">
-
-                        <div class="form-floating">
-                            <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username">
-                            <label for="floatingInput">Username</label>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h1 class="text-center">Check Receipt</h1>
+                    <form action="receipt.php" method="GET">
+                        <label for="no_receipt" class="text-start">No. Receipt</label>
+                        <div class="input-group">
+                            <input type="text" name="no_receipt" class="form-control" id="no_receipt" required>
+                            <button class="btn btn-success" type="submit">Submit</button>
                         </div>
-                        <div class="form-floating">
-                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <button class="w-100 btn btn-lg btn-primary" name="btnLogin" type="submit"><i class="bi bi-box-arrow-in-right"></i> Login</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     <!--End Brands-->
+
 
 
     <!-- Start Footer -->
@@ -218,7 +201,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-auto me-auto">
                     <ul class="list-inline text-left footer-icons">
                         <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a rel="nofollow" class="text-light text-decoration-none" target="_blank" href="http://fb.com/templatemo"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                         </li>
                         <li class="list-inline-item border border-light rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
@@ -247,7 +230,7 @@ https://templatemo.com/tm-559-zay-shop
                     <div class="col-12">
                         <p class="text-left text-light">
                             Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com/page/1" target="_blank">TemplateMo</a>
+                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
                         </p>
                     </div>
                 </div>

@@ -92,23 +92,23 @@ https://templatemo.com/tm-559-zay-shop
             		<form method="post" enctype="multipart/form-data">
             			<div class="mb-3">
 						  <label for="product_name" class="form-label">Product Name</label>
-						  <input type="text" class="form-control" id="product_name" name="product_name">
+						  <input type="text" class="form-control" id="product_name" name="product_name" required>
 						</div>
 						<div class="mb-3">
 						  <label for="product_stock" class="form-label">Product Stock</label>
-						  <input type="number" min="1" step="1" class="form-control" id="product_stock" name="product_stock">
+						  <input type="number" min="1" step="1" class="form-control" id="product_stock" name="product_stock" required>
 						</div>
 						<div class="mb-3">
 						  <label for="product_price" class="form-label">Product Price</label>
-						  <input type="number" min="1" step="1" class="form-control" id="product_price" name="product_price">
+						  <input type="number" min="1" step="1" class="form-control" id="product_price" name="product_price" required>
 						</div>
                         <div class="mb-3">
                           <label for="product_description" class="form-label">Product Description</label>
-                          <textarea class="form-control" id="product_description" name="product_description"></textarea>
+                          <textarea class="form-control" id="product_description" name="product_description" required></textarea>
                         </div>
 						<div class="mb-3">
 						  <label for="product_img" class="form-label">Product Image</label>
-						  <input class="form-control" type="file" id="product_img" name="product_img">
+						  <input class="form-control" type="file" id="product_img" name="product_img" required>
 						</div>
 						<div class="col-auto">
 					    	<button type="submit" name="btnAddProductAdmin" class="btn btn-primary mb-3">Add Product</button>
