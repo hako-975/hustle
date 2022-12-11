@@ -98,6 +98,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="check_receipt.php">Check Receipt</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -171,8 +174,21 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="card-body print-only">
                             <h4 class="text-center">Order Successfully!</h4>
                             <img style="width: 20%" class="d-block mx-auto my-4" src="assets/img/success.png" alt="Purchase Successfully">
-                            <table class="table">
+                            <table class="table border-top">
                                 <tr>
+                                    <tr>
+                                        <td class="align-middle my-auto">
+                                            <h5>
+                                                Status: 
+                                                <?php if ($receipt['status'] == 'process'): ?>
+                                                    <span class="badge bg-danger">Process</span>
+                                                <?php else: ?>
+                                                    <span class="badge bg-success">Completed</span>
+                                                <?php endif ?>
+                                            </h5>
+                                        </td>
+                                        <td></td>
+                                    </tr>
                                     <td>
                                         <h5>No. Receipt:</h5>
                                         <span><?= $receipt['no_receipt']; ?></span>
@@ -184,38 +200,8 @@ https://templatemo.com/tm-559-zay-shop
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h5>Customer Name:</h5>
-                                        <span><?= $receipt['customer_name']; ?></span>
-                                    </td>
-                                    <td>
-                                        <h5>Customer Phone:</h5>
-                                        <span><?= $receipt['customer_phone']; ?></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Customer Email:</h5>
-                                        <span><?= $receipt['customer_email']; ?></span>
-                                    </td>
-                                    <td>
-                                        <h5>Customer Address:</h5>
-                                        <span><?= $receipt['customer_address']; ?></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
                                         <h5>Product Name:</h5>
                                         <span><?= $receipt['product_name']; ?></span>
-                                    </td>
-                                    <td>
-                                        <h5>Product Price:</h5>
-                                        <span>Rp. <?= implode('.', explode(',', number_format($receipt['product_price']))); ?></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Qty:</h5>
-                                        <span><?= $receipt['qty']; ?></span>
                                     </td>
                                     <td>
                                         <h5>Size:</h5>
@@ -224,22 +210,43 @@ https://templatemo.com/tm-559-zay-shop
                                 </tr>
                                 <tr>
                                     <td>
+                                        <h5>Product Price:</h5>
+                                        <span>Rp. <?= implode('.', explode(',', number_format($receipt['product_price']))); ?></span>
+                                    </td>
+                                    <td>
+                                        <h5>Qty:</h5>
+                                        <span><?= $receipt['qty']; ?></span>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
                                         <h5>Shipping Cost:</h5>
                                         <span>Rp. 15.000</span>
                                     </td>
                                     <td>
+                                        <h5>Customer Name:</h5>
+                                        <span><?= $receipt['customer_name']; ?></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         <h5>Shipping Insurance:</h5>
                                         <span>Rp. 1.000</span>
+                                    </td>
+                                    <td>
+                                        <h5>Customer Phone:</h5>
+                                        <span><?= $receipt['customer_phone']; ?></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <h5>Application Service Fee:</h5>
                                         <span>Rp. 2.000</span>
-                                    </td>                   
+                                    </td>   
                                     <td>
-                                        <h5>Payment Method:</h5>
-                                        <span>COD (Cash On Delivery)</span>
+                                        <h5>Customer Email:</h5>
+                                        <span><?= $receipt['customer_email']; ?></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -248,11 +255,23 @@ https://templatemo.com/tm-559-zay-shop
                                         <span>Rp. <?= implode('.', explode(',', number_format($receipt['total']))); ?></span>
                                     </td>                 
                                     <td>
+                                        <h5>Customer Address:</h5>
+                                        <span><?= $receipt['customer_address']; ?></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Payment Method:</h5>
+                                        <span>COD (Cash On Delivery)</span>
+                                    </td>
+                                    <td>
                                         <h5>Note:</h5>
                                         <span><?= $receipt['note']; ?></span>
                                     </td>
                                 </tr>
+
                             </table>
+                            
                             <button onclick="return window.print()" class="no-print btn btn-success"><i class="fas fa-fw fa-print"></i> Print</button>
                         </div>
                     </div>
