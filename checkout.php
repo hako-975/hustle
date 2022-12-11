@@ -24,7 +24,7 @@
         $note = htmlspecialchars($_POST['note']);
         $date_checkout = date('Y-m-d h:i:s');
 
-        $sql = mysqli_query($conn, "INSERT INTO receipt VALUES ('$no_receipt', '$customer_name', '$customer_phone', '$customer_email', '$customer_address', '$product_id', '$qty', '$size', '$total', '$note', '$date_checkout')");
+        $sql = mysqli_query($conn, "INSERT INTO receipt VALUES ('$no_receipt', '$customer_name', '$customer_phone', '$customer_email', '$customer_address', '$product_id', '$qty', '$size', '$total', '$note', '$date_checkout', 'process')");
         if($sql) {
             $descrease_stock = $product['product_stock'] - $qty;
             mysqli_query($conn, "UPDATE product SET product_stock = '$descrease_stock' WHERE product_id = '$product_id'");

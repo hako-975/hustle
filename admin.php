@@ -7,6 +7,10 @@
         exit;
     }
 
+    $totalProduct = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM product"));
+    $totalReceipt = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM receipt"));
+    $totalReceiptProcess = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM receipt WHERE status = 'process'"));
+    $totalReceiptCompleted = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM receipt WHERE status = 'completed'"));
  ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,51 +41,47 @@ https://templatemo.com/tm-559-zay-shop
 
 <body>
 
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h2 align-self-center" href="admin.php">
-                Hustle Admin
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="product_admin.php">Product</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <li class="nav-icon dropdown position-relative list-unstyled">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i> <?= $_SESSION['username']; ?>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><?= $_SESSION['username']; ?></a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                      </ul>
-                    </li>
-                </div>
-            </div>
-
-        </div>
-    </nav>
-    <!-- Close Header -->
+    <?php include 'header_admin.php'; ?>
 
     <!-- Start Brands -->
     <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                <div class="col">
-                    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 my-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Product</h5>
+                        <p class="card-text"><?= $totalProduct; ?></p>
+                        <a href="product_admin.php" class="card-link">Details</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Receipt</h5>
+                        <p class="card-text"><?= $totalReceipt; ?></p>
+                        <a href="receipt_admin.php" class="card-link">Details</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Receipt Process</h5>
+                        <p class="card-text"><?= $totalReceiptProcess; ?></p>
+                        <a href="receipt_admin.php" class="card-link">Details</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Receipt Completed</h5>
+                        <p class="card-text"><?= $totalReceiptCompleted; ?></p>
+                        <a href="receipt_admin.php" class="card-link">Details</a>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
